@@ -56,6 +56,8 @@ class DBHelper extends SQLiteOpenHelper {
 
 * initialize StorIO
 ```java
+import pl.orendi.cipherstoreio.CipherStoreIO
+...
 CipherStoreIO.builder()
                 .sqliteOpenHelper(DBHelper(this), "password")
                 .build()
