@@ -26,11 +26,12 @@ release build comming soon
 
 How to use it
 --
-1. Initialize sqlCipher in your Application onCreate
+* Initialize sqlCipher in your Application onCreate
 ```kotlin
 SQLiteDatabase.loadLibs(this)
 ```
-2. create dbhelper
+
+* create dbhelper
 ```java
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteOpenHelper;
@@ -51,6 +52,13 @@ class DBHelper extends SQLiteOpenHelper {
         //update your database here
     }
 }
-
-
 ```
+
+* initialize StorIO
+```java
+CipherStoreIO.builder()
+                .sqliteOpenHelper(DBHelper(this), "password")
+                .build()
+```
+
+* use StorIO like a boss
