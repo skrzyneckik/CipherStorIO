@@ -5,12 +5,10 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.facebook.stetho.Stetho
 import com.pushtorefresh.storio.sqlite.operations.put.DefaultPutResolver
 import com.pushtorefresh.storio.sqlite.queries.InsertQuery
 import com.pushtorefresh.storio.sqlite.queries.Query
 import com.pushtorefresh.storio.sqlite.queries.UpdateQuery
-
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SQLiteOpenHelper
 import pl.orendi.cipherstoreio.CipherStoreIO
@@ -19,7 +17,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Stetho.initializeWithDefaults(this)
         setContentView(R.layout.activity_main)
 
         SQLiteDatabase.loadLibs(this)
@@ -31,7 +28,9 @@ class MainActivity : AppCompatActivity() {
         base.put()
                 .contentValues(ContentValues().apply {
                     put(UsersTable.COLUMN_ID, 1)
-                    put(UsersTable.COLUMN_NAME, "dupa")
+                    put(UsersTable.COLUMN_NAME, "username")
+                    put(UsersTable.COLUMN_ID, 2)
+                    put(UsersTable.COLUMN_NAME, "otherUser")
                 })
                 .withPutResolver(UsersTable.putResolver)
                 .prepare().executeAsBlocking()
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         if (cursor.moveToFirst()) {
             do {
-                Log.d("BOCHEN", "${cursor.getInt(cursor.getColumnIndex(UsersTable.COLUMN_ID))} = ${cursor.getString(cursor.getColumnIndex(UsersTable.COLUMN_NAME))}")
+                Log.d("CIPHERSTOREIO", "${cursor.getInt(cursor.getColumnIndex(UsersTable.COLUMN_ID))} = ${cursor.getString(cursor.getColumnIndex(UsersTable.COLUMN_NAME))}")
             } while (cursor.moveToNext())
         }
         cursor.close()

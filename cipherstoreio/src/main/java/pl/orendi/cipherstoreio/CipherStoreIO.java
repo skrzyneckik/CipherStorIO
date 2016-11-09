@@ -39,7 +39,8 @@ import static com.pushtorefresh.storio.internal.InternalQueries.nullableString;
 import static java.util.Collections.unmodifiableMap;
 
 /**
- * Default implementation of {@link StorIOSQLite} for {@link android.database.sqlite.SQLiteDatabase}.
+ * Implementation of {@link StorIOSQLite} for {@link android.database.sqlite.SQLiteDatabase}.
+ * It uses SQLiteOpenHelper provided by SQLCipher for data encryption.
  * <p>
  * Thread-safe.
  */
