@@ -20,9 +20,8 @@ repositories {
 ```
 add dependency
 ```groovy
-compile 'com.github.pbochenski:CipherStoreIO:master-SNAPSHOT'
+compile 'com.github.pbochenski:CipherStoreIO:0.2'
 ```
-release build comming soon
 
 How to use it
 --
