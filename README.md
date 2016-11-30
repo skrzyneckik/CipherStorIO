@@ -63,3 +63,9 @@ CipherStoreIO.builder()
 ```
 
 * use StorIO like a boss
+
+Current method count (without Proguard)
+--
+StorIO: 501  
+SqlCipher: 711  
+CipherStorIO: 40  
